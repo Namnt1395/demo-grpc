@@ -1,0 +1,15 @@
+syntax = "proto3";
+package pub;
+
+message String {
+  string key = 1;
+  string value = 2;
+}
+
+service PubsubService {
+  // phương thức RPC thông thường
+  rpc Publish (String) returns (String);
+
+  // service server streaming
+  rpc Subscribe (String) returns (stream String);
+}
